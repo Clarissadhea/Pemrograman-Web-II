@@ -1,8 +1,8 @@
 <?php
 function getConnection() {
     $host = "localhost";
-    $username = "root"; // Sesuaikan dengan username database kamu
-    $password = "";     // Sesuaikan dengan password database kamu
+    $username = "root"; 
+    $password = "";    
     $database = "prak501";
 
     try {
