@@ -12,7 +12,7 @@ function addMember($nama, $nomor, $alamat, $tgl_mendaftar, $tgl_bayar) {
     $sql = "INSERT INTO member (nama_member, nomor_member, alamat, tgl_mendaftar, tgl_bayar) 
             VALUES (:nama, :nomor, :alamat, :tgl_mendaftar, :tgl_bayar)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute(['nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tglr_bayar' => $tgl_bayar]);
+    $stmt->execute(['nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tgl_bayar' => $tgl_bayar]);
 }
 
 function updateMember($id, $nama, $nomor, $alamat, $tgl_mendaftar, $tgl_bayar) {
