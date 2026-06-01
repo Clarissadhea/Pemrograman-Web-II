@@ -17,6 +17,10 @@
                 <h4 class="mb-0 fw-bold tracking-wide">Profil Praktikan</h4>
             </div>
             <div class="card-body p-4 bg-white">
+                
+                <div class="text-center mb-4 mt-2">
+                    <img src="/profil.jpeg" alt="Foto Profil" class="rounded-circle shadow-sm" style="width: 150px; height: 150px; object-fit: cover; border: 4px solid var(--pink-lavender);">
+                </div>
                 <table class="table table-borderless mb-0">
                     <tbody>
                         <tr>
