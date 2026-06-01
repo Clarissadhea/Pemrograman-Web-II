@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
         $nomor = $data['nomor_member'];
         $alamat = $data['alamat'];
         $tgl_daftar = date('Y-m-d\TH:i', strtotime($data['tgl_mendaftar'])); 
-        $tgl_bayar = $data['tgl_bayar'];
+        $tgl_bayar = $data['tgl_terakhir_bayar'];
     }
 }
 
@@ -36,49 +36,52 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Form Member</title>
+    <title>Form Member - Perpustakaan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container mt-5">
+<body>
+
+    <?php require 'Navbar.php'; ?>
+
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0"><?= $id ? 'Edit' : 'Tambah' ?> Data Member</h4>
-                    </div>
-                    <div class="card-body">
-                        <form action="" method="POST">
-                            <input type="hidden" name="id_member" value="<?= $id ?>">
-                            
-                            <div class="mb-3">
-                                <label class="form-label">Nama Member</label>
-                                <input type="text" name="nama" class="form-control" value="<?= $nama ?>" required maxlength="250">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Nomor Member</label>
-                                <input type="text" name="nomor" class="form-control" value="<?= $nomor ?>" required maxlength="15">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Alamat</label>
-                                <textarea name="alamat" class="form-control" rows="3" required><?= $alamat ?></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Tanggal Mendaftar</label>
-                                <input type="datetime-local" name="tgl_daftar" class="form-control" value="<?= $tgl_daftar ?>" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Tanggal Bayar</label>
-                                <input type="date" name="tgl_bayar" class="form-control" value="<?= $tgl_bayar ?>" required>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-success">Simpan Data</button>
-                            <a href="Member.php" class="btn btn-secondary">Kembali</a>
-                        </form>
-                    </div>
+                <div class="card card-custom p-4">
+                    <h4 class="fw-bold text-dark mb-4"><?= $id ? 'Edit' : 'Tambah' ?> Data Member</h4>
+                    <form action="" method="POST">
+                        <input type="hidden" name="id_member" value="<?= $id ?>">
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Nama Member</label>
+                            <input type="text" name="nama" class="form-control" value="<?= $nama ?>" required maxlength="250">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nomor Member</label>
+                            <input type="text" name="nomor" class="form-control" value="<?= $nomor ?>" required maxlength="15">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Alamat</label>
+                            <textarea name="alamat" class="form-control" rows="3" required><?= $alamat ?></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Mendaftar</label>
+                            <input type="datetime-local" name="tgl_daftar" class="form-control" value="<?= $tgl_daftar ?>" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Tanggal Terakhir Bayar</label>
+                            <input type="date" name="tgl_bayar" class="form-control" value="<?= $tgl_bayar ?>" required>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between">
+                            <a href="Member.php" class="btn btn-light border text-dark">Batal</a>
+                            <button type="submit" class="btn btn-custom btn-primary-custom">Simpan Data</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

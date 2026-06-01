@@ -7,20 +7,20 @@ function getMembers() {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function addMember($nama, $nomor, $alamat, $tgl_mendaftar, $tgl_bayar) {
+function addMember($nama, $nomor, $alamat, $tgl_mendaftar, $tgl_terakhir_bayar) {
     $conn = getConnection();
-    $sql = "INSERT INTO member (nama_member, nomor_member, alamat, tgl_mendaftar, tgl_bayar) 
-            VALUES (:nama, :nomor, :alamat, :tgl_mendaftar, :tgl_bayar)";
+    $sql = "INSERT INTO member (nama_member, nomor_member, alamat, tgl_mendaftar, tgl_terakhir_bayar) 
+            VALUES (:nama, :nomor, :alamat, :tgl_mendaftar, :tgl_terakhir_bayar)";
     $stmt = $conn->prepare($sql);
-    $stmt->execute(['nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tglr_bayar' => $tgl_bayar]);
+    $stmt->execute(['nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tgl_terakhir_bayar' => $tgl_terakhir_bayar]);
 }
 
-function updateMember($id, $nama, $nomor, $alamat, $tgl_mendaftar, $tgl_bayar) {
+function updateMember($id, $nama, $nomor, $alamat, $tgl_mendaftar, $tgl_terakhir_bayar) {
     $conn = getConnection();
     $sql = "UPDATE member SET nama_member=:nama, nomor_member=:nomor, alamat=:alamat, 
-            tgl_mendaftar=:tgl_mendaftar, tgl_bayar=:tgl_bayar WHERE id_member=:id";
+            tgl_mendaftar=:tgl_mendaftar, tgl_terakhir_bayar=:tgl_terakhir_bayar WHERE id_member=:id";
     $stmt = $conn->prepare($sql);
-    $stmt->execute(['id' => $id, 'nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tgl_bayar' => $tgl_bayar]);
+    $stmt->execute(['id' => $id, 'nama' => $nama, 'nomor' => $nomor, 'alamat' => $alamat, 'tgl_mendaftar' => $tgl_mendaftar, 'tgl_terakhir_bayar' => $tgl_terakhir_bayar]);
 }
 
 function deleteMember($id) {
